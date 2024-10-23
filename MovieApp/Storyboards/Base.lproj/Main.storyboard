@@ -1,24 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-Ge-cEo">
+                                <rect key="frame" x="27.5" y="123.5" width="120" height="120"/>
+                                <color key="backgroundColor" name="MiniCircleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jmf-Ge-cEo" secondAttribute="height" multiplier="1:1" id="r4n-we-p79"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1G-cW-L0V">
+                                <rect key="frame" x="123.5" y="209.5" width="248" height="248"/>
+                                <color key="backgroundColor" name="BigCircleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="s1G-cW-L0V" secondAttribute="height" multiplier="1:1" id="t6Q-xq-4sg"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00y-aM-JhP">
+                                <rect key="frame" x="54.5" y="395.5" width="176" height="176"/>
+                                <color key="backgroundColor" name="MediumCircleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="00y-aM-JhP" secondAttribute="height" multiplier="1:1" id="3vJ-jN-EXw"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vp8-YM-kBf">
+                                <rect key="frame" x="70.5" y="278.5" width="234" height="110"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="80"/>
+                                <color key="tintColor" name="LabelColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Movies">
+                                    <color key="titleColor" name="CustomLabelColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Zsm-bL-QbI" kind="presentation" modalPresentationStyle="fullScreen" id="nN2-eE-bmh"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This application is created for educational purposes. To simply view the list of films, click on the &quot;Movies&quot; button." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ll-yP-I1g">
+                                <rect key="frame" x="16" y="622" width="343" height="37"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="15"/>
+                                <color key="textColor" name="CustomFooterColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="LaunchScreenColor"/>
+                        <constraints>
+                            <constraint firstItem="s1G-cW-L0V" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.371814" id="0FY-0o-ecQ"/>
+                            <constraint firstItem="00y-aM-JhP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="150" id="7g8-oB-EBC"/>
+                            <constraint firstItem="00y-aM-JhP" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.263868" id="8Ua-io-guw"/>
+                            <constraint firstItem="vp8-YM-kBf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qry-cc-CcF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8Ll-yP-I1g" secondAttribute="bottom" constant="8" id="Wxa-eE-CKl"/>
+                            <constraint firstAttribute="trailing" secondItem="8Ll-yP-I1g" secondAttribute="trailing" constant="16" id="fnx-Le-5qb"/>
+                            <constraint firstItem="jmf-Ge-cEo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-100" id="jhU-wM-gcX"/>
+                            <constraint firstItem="jmf-Ge-cEo" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.17991" id="kdk-zd-tCf"/>
+                            <constraint firstItem="8Ll-yP-I1g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="kpn-Jl-83Z"/>
+                            <constraint firstItem="jmf-Ge-cEo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-150" id="rGs-1v-H2I"/>
+                            <constraint firstItem="00y-aM-JhP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-45" id="ri9-be-rlp"/>
+                            <constraint firstItem="vp8-YM-kBf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="s05-L4-zSq"/>
+                            <constraint firstItem="s1G-cW-L0V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="wYe-e4-EaC"/>
+                            <constraint firstItem="s1G-cW-L0V" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wtK-h0-JiP"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Movies" id="B4x-YM-gXP"/>
+                    <connections>
+                        <outlet property="bigView" destination="s1G-cW-L0V" id="Qwy-2o-ypj"/>
+                        <outlet property="mediumView" destination="00y-aM-JhP" id="yQp-P0-yG9"/>
+                        <outlet property="miniView" destination="jmf-Ge-cEo" id="TW7-DX-x5e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="996" y="-2.2488755622188905"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="SRA-3i-Frl">
+            <objects>
+                <tableViewController id="FRM-uG-8UI" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hBk-DA-ojV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="BkE-YA-mGF">
+                                <rect key="frame" x="0.0" y="50" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BkE-YA-mGF" id="7fb-SA-y6o">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FRM-uG-8UI" id="VYA-SV-Ub9"/>
+                            <outlet property="delegate" destination="FRM-uG-8UI" id="SuZ-X1-XqD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Movies" id="IYT-vI-ijI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r4v-ep-0X8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2631" y="-2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7CB-IY-6t6">
+            <objects>
+                <navigationController id="Zsm-bL-QbI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="66n-Vl-itb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bdS-to-foI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FRM-uG-8UI" kind="relationship" relationship="rootViewController" id="7IV-0l-VF8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dEx-ZK-Xcs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1817" y="-2"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="BigCircleColor">
+            <color red="0.099784230599999996" green="0.10775354819999999" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CustomFooterColor">
+            <color red="0.74520787638616359" green="0.72514446499287155" blue="0.70541941297233934" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CustomLabelColor">
+            <color red="0.13126474056603776" green="0.12249423739705957" blue="0.12166297600723437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="LabelColor">
+            <color red="0.13126474060000001" green="0.1224942374" blue="0.12166297600000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="LaunchScreenColor">
+            <color red="1" green="0.92777854039999996" blue="0.92426929879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MediumCircleColor">
+            <color red="1" green="0.92818374140000004" blue="0.1686432507" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="MiniCircleColor">
+            <color red="1" green="0.1857743449" blue="0.12378655619999999" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
