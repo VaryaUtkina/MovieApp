@@ -15,6 +15,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchMovies()
     }
     
     override func viewWillLayoutSubviews() {
@@ -23,6 +24,32 @@ final class MainViewController: UIViewController {
         bigView.layer.cornerRadius = bigView.frame.width / 2
     }
 
-
+    private func fetchMovies() {
+        let headers = [
+            "x-rapidapi-key": "8b70de7122mshf7d8da5b54e7c8ap129e91jsn91405a76579c",
+            "x-rapidapi-host": "ott-details.p.rapidapi.com"
+        ]
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://ott-details.p.rapidapi.com/advancedsearch?start_year=1970&end_year=2020&min_imdb=6&max_imdb=7.8&genre=action&language=english&type=movie&sort=latest&page=1")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        URLSession.shared.dataTask(with: request as URLRequest) { data, _, error in
+            guard let data else {
+                print(error ?? "Error")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let listOfMovies = try decoder.decode(ListOfMovies.self, from: data)
+                print(listOfMovies)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }.resume()
+    }
 }
 
