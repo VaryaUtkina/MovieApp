@@ -15,6 +15,15 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIView.animateKeyframes(
+            withDuration: 1.5,
+            delay: 0) { [unowned self] in
+                miniView.frame.origin.x = -80
+                miniView.frame.origin.y = 200
+                mediumView.frame.origin.x = -120
+                mediumView.frame.origin.y = -50
+                bigView.frame.origin.x = -20
+            }
         fetchMovies()
     }
     
