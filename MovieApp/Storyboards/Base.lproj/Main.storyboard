@@ -96,12 +96,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="BkE-YA-mGF">
-                                <rect key="frame" x="0.0" y="50" width="375" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="100" id="BkE-YA-mGF">
+                                <rect key="frame" x="0.0" y="50" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BkE-YA-mGF" id="7fb-SA-y6o">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y48-nS-9Bx">
+                                            <rect key="frame" x="0.0" y="0.0" width="81.5" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="y48-nS-9Bx" secondAttribute="height" multiplier="13:16" id="2gL-aQ-Czp"/>
+                                                <constraint firstAttribute="height" constant="100" id="CgC-wb-CDg"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-Uo-dY5">
+                                            <rect key="frame" x="89.5" y="11" width="269.5" height="30.5"/>
+                                            <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvb-ap-OeI">
+                                            <rect key="frame" x="89.5" y="64.5" width="35" height="24.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="qqu-WX-xyw"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xu-4M-mv3">
+                                            <rect key="frame" x="132.5" y="64" width="44" height="25"/>
+                                            <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vW5-Uo-dY5" secondAttribute="trailing" id="Bz5-Zc-Vjc"/>
+                                        <constraint firstItem="3xu-4M-mv3" firstAttribute="bottom" secondItem="7fb-SA-y6o" secondAttribute="bottomMargin" id="Ci5-uh-7bS"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3xu-4M-mv3" secondAttribute="trailing" constant="8" id="Ufs-US-bfX"/>
+                                        <constraint firstItem="3xu-4M-mv3" firstAttribute="leading" secondItem="dvb-ap-OeI" secondAttribute="trailing" constant="8" id="UrB-Sb-VWi"/>
+                                        <constraint firstItem="dvb-ap-OeI" firstAttribute="leading" secondItem="y48-nS-9Bx" secondAttribute="trailing" constant="8" id="aLO-vE-3rq"/>
+                                        <constraint firstItem="vW5-Uo-dY5" firstAttribute="top" secondItem="7fb-SA-y6o" secondAttribute="topMargin" id="czH-C9-hlg"/>
+                                        <constraint firstItem="vW5-Uo-dY5" firstAttribute="leading" secondItem="y48-nS-9Bx" secondAttribute="trailing" constant="8" id="gv6-DP-4NE"/>
+                                        <constraint firstItem="y48-nS-9Bx" firstAttribute="top" secondItem="7fb-SA-y6o" secondAttribute="top" id="hin-Ct-IFH"/>
+                                        <constraint firstItem="y48-nS-9Bx" firstAttribute="leading" secondItem="7fb-SA-y6o" secondAttribute="leading" id="kKL-zV-oqa"/>
+                                        <constraint firstItem="dvb-ap-OeI" firstAttribute="bottom" secondItem="7fb-SA-y6o" secondAttribute="bottomMargin" id="kzp-WC-qTN"/>
+                                        <constraint firstAttribute="bottom" secondItem="y48-nS-9Bx" secondAttribute="bottom" id="t9l-qD-PoE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -114,7 +157,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4v-ep-0X8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2631" y="-2"/>
+            <point key="canvasLocation" x="2629.5999999999999" y="-2.2488755622188905"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7CB-IY-6t6">
@@ -136,25 +179,25 @@
     </scenes>
     <resources>
         <namedColor name="BigCircleColor">
-            <color red="0.099784230599999996" green="0.10775354819999999" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.10000000149011612" green="0.1080000028014183" blue="1" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="CustomFooterColor">
-            <color red="0.74520787638616359" green="0.72514446499287155" blue="0.70541941297233934" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.74500000476837158" green="0.72500002384185791" blue="0.70499998331069946" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="CustomLabelColor">
-            <color red="0.13126474056603776" green="0.12249423739705957" blue="0.12166297600723437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.13099999725818634" green="0.12200000137090683" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="LabelColor">
             <color red="0.13126474060000001" green="0.1224942374" blue="0.12166297600000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="LaunchScreenColor">
-            <color red="1" green="0.92777854039999996" blue="0.92426929879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.92799997329711914" blue="0.92400002479553223" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MediumCircleColor">
-            <color red="1" green="0.92818374140000004" blue="0.1686432507" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.92799997329711914" blue="0.16899999976158142" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MiniCircleColor">
-            <color red="1" green="0.1857743449" blue="0.12378655619999999" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="1" green="0.18600000441074371" blue="0.12399999797344208" alpha="0.89999997615814209" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
