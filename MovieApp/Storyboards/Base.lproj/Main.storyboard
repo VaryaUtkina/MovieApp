@@ -90,13 +90,13 @@
         <!--Movies-->
         <scene sceneID="SRA-3i-Frl">
             <objects>
-                <tableViewController id="FRM-uG-8UI" sceneMemberID="viewController">
+                <tableViewController id="FRM-uG-8UI" customClass="MoviesViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hBk-DA-ojV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="100" id="BkE-YA-mGF">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="100" id="BkE-YA-mGF" customClass="MovieCell" customModule="MovieApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BkE-YA-mGF" id="7fb-SA-y6o">
@@ -146,6 +146,12 @@
                                         <constraint firstAttribute="bottom" secondItem="y48-nS-9Bx" secondAttribute="bottom" id="t9l-qD-PoE"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieView" destination="y48-nS-9Bx" id="8gy-6D-Swo"/>
+                                    <outlet property="nameLabel" destination="vW5-Uo-dY5" id="UlN-0R-ocv"/>
+                                    <outlet property="rateLabel" destination="dvb-ap-OeI" id="7SH-Wy-w70"/>
+                                    <outlet property="yearAndTypeLabel" destination="3xu-4M-mv3" id="qbZ-sC-oOl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
