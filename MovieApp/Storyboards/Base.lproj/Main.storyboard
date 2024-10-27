@@ -147,7 +147,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="movieView" destination="y48-nS-9Bx" id="8gy-6D-Swo"/>
+                                    <outlet property="movieView" destination="y48-nS-9Bx" id="mFY-A2-Ypu"/>
                                     <outlet property="nameLabel" destination="vW5-Uo-dY5" id="UlN-0R-ocv"/>
                                     <outlet property="rateLabel" destination="dvb-ap-OeI" id="7SH-Wy-w70"/>
                                     <outlet property="yearAndTypeLabel" destination="3xu-4M-mv3" id="qbZ-sC-oOl"/>
@@ -159,7 +159,7 @@
                             <outlet property="delegate" destination="FRM-uG-8UI" id="SuZ-X1-XqD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Movies" id="IYT-vI-ijI"/>
+                    <navigationItem key="navigationItem" title="Movies" largeTitleDisplayMode="always" id="IYT-vI-ijI"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4v-ep-0X8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,7 +169,7 @@
         <scene sceneID="7CB-IY-6t6">
             <objects>
                 <navigationController id="Zsm-bL-QbI" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="66n-Vl-itb"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="66n-Vl-itb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bdS-to-foI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
