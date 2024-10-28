@@ -17,7 +17,7 @@ final class MoviesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchMovies()
-        tableView.rowHeight = 120
+        tableView.rowHeight = 80
     }
     
     // MARK: - Navigation
@@ -43,6 +43,7 @@ final class MoviesViewController: UITableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movie = movies[indexPath.row]
+        print(movie)
         performSegue(withIdentifier: "showMovie", sender: movie)
     }
     

@@ -31,7 +31,7 @@ final class MovieDetailsViewController: UIViewController {
         releasedAndTypeLabel.text = "\(movie.released), \(movie.type)"
         
         imdbRatingLabel.text = movie.imdbrating.formatted()
-        imdbRatingLabel.textColor = movie.imdbrating >= 7 ? .green : .gray
+        imdbRatingLabel.textColor = movie.imdbrating >= 7 ? .customGreen : .customGrey
         
         genreLabel.text = "Genre: \(movie.genre.joined(separator: ", "))"
         synopsisLabel.text = "Synopsis: \(movie.synopsis)"

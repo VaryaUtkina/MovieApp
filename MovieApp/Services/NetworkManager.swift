@@ -59,7 +59,7 @@ final class NetworkManager {
             } else {
                 DispatchQueue.main.async {
                     image.image = UIImage(systemName: "movieclapper")
-                    image.tintColor = .black
+                    image.tintColor = .customGrey
                 }
             }
         }
