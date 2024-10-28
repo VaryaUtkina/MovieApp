@@ -39,8 +39,8 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vp8-YM-kBf">
-                                <rect key="frame" x="70.5" y="278.5" width="234" height="110"/>
-                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="80"/>
+                                <rect key="frame" x="67.5" y="280" width="240" height="107"/>
+                                <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="80"/>
                                 <color key="tintColor" name="LabelColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Movies">
@@ -111,23 +111,23 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-Uo-dY5">
-                                            <rect key="frame" x="89.5" y="11" width="269.5" height="30.5"/>
-                                            <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="25"/>
+                                            <rect key="frame" x="89.5" y="11" width="269.5" height="30"/>
+                                            <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="25"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvb-ap-OeI">
-                                            <rect key="frame" x="89.5" y="64.5" width="35" height="24.5"/>
+                                            <rect key="frame" x="89.5" y="65" width="35" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="qqu-WX-xyw"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xu-4M-mv3">
-                                            <rect key="frame" x="132.5" y="64" width="44" height="25"/>
-                                            <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="20"/>
+                                            <rect key="frame" x="132.5" y="65" width="47" height="24"/>
+                                            <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -160,10 +160,91 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Movies" largeTitleDisplayMode="always" id="IYT-vI-ijI"/>
+                    <connections>
+                        <segue destination="yP2-aL-z8R" kind="show" identifier="showMovie" id="tvM-AQ-NQA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4v-ep-0X8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2629.5999999999999" y="-2.2488755622188905"/>
+            <point key="canvasLocation" x="2658" y="-2"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hz3-0O-DsS">
+            <objects>
+                <viewController id="yP2-aL-z8R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ebc-1A-JK0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YKe-6r-Ghv">
+                                <rect key="frame" x="79" y="44" width="217" height="267"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YKe-6r-Ghv" secondAttribute="height" multiplier="13:16" id="w0H-Z4-fWS"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="z43-nK-Dt8">
+                                <rect key="frame" x="16" y="323" width="343" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2Y-9k-akP">
+                                        <rect key="frame" x="0.0" y="0.0" width="47.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Released and type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnA-4a-nPM">
+                                        <rect key="frame" x="0.0" y="36" width="171" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lbu-XL-hJB">
+                                        <rect key="frame" x="0.0" y="68.5" width="153.5" height="26.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMBD rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saE-jG-BzJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="117" height="26.5"/>
+                                                <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjb-Ft-HmB">
+                                                <rect key="frame" x="125" y="0.0" width="28.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYo-Oy-gp7">
+                                        <rect key="frame" x="0.0" y="101" width="63" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaw-s0-TLY">
+                                        <rect key="frame" x="0.0" y="133.5" width="87.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hGI-bF-ftg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YKe-6r-Ghv" firstAttribute="centerX" secondItem="ebc-1A-JK0" secondAttribute="centerX" id="Ie0-sh-ivv"/>
+                            <constraint firstItem="z43-nK-Dt8" firstAttribute="leading" secondItem="hGI-bF-ftg" secondAttribute="leading" constant="16" id="K6x-bt-Zif"/>
+                            <constraint firstItem="YKe-6r-Ghv" firstAttribute="height" secondItem="ebc-1A-JK0" secondAttribute="height" multiplier="0.4003" id="KgT-kM-0K1"/>
+                            <constraint firstItem="YKe-6r-Ghv" firstAttribute="top" secondItem="hGI-bF-ftg" secondAttribute="top" id="R3I-0o-VsR"/>
+                            <constraint firstItem="hGI-bF-ftg" firstAttribute="trailing" secondItem="z43-nK-Dt8" secondAttribute="trailing" constant="16" id="Z5z-IE-eyd"/>
+                            <constraint firstItem="z43-nK-Dt8" firstAttribute="top" secondItem="YKe-6r-Ghv" secondAttribute="bottom" constant="12" id="qeD-07-ZFI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Mmu-XG-BJA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2kd-KI-ZaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3485.5999999999999" y="-2.2488755622188905"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7CB-IY-6t6">
