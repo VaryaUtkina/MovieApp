@@ -5,7 +5,8 @@
 //  Created by Варвара Уткина on 23.10.2024.
 //
 
-import Foundation
+import UIKit
+
 
 enum NetworkError: Error {
     case noData
@@ -45,5 +46,22 @@ final class NetworkManager {
                 completion(.failure(.decodingError))
             }
         }.resume()
+    }
+    
+    func fetchImage(fromMovie movie: Movie, toImage image: UIImageView) {
+        DispatchQueue.global().async {
+            if let imageUrlString = movie.imageurl.first,
+                let url = URL(string: imageUrlString),
+                let imageData = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    image.image = UIImage(data: imageData)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    image.image = UIImage(systemName: "movieclapper")
+                    image.tintColor = .black
+                }
+            }
+        }
     }
 }

@@ -168,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="2658" y="-2"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie Details View Controller-->
         <scene sceneID="hz3-0O-DsS">
             <objects>
-                <viewController id="yP2-aL-z8R" sceneMemberID="viewController">
+                <viewController id="yP2-aL-z8R" customClass="MovieDetailsViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ebc-1A-JK0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -185,7 +185,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="z43-nK-Dt8">
                                 <rect key="frame" x="16" y="323" width="343" height="160"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2Y-9k-akP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2Y-9k-akP">
                                         <rect key="frame" x="0.0" y="0.0" width="47.5" height="30"/>
                                         <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="25"/>
                                         <nil key="textColor"/>
@@ -216,11 +216,11 @@
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYo-Oy-gp7">
                                         <rect key="frame" x="0.0" y="101" width="63" height="26.5"/>
-                                        <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="MalayalamSangamMN-Bold" family="Malayalam Sangam MN" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaw-s0-TLY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis:" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaw-s0-TLY">
                                         <rect key="frame" x="0.0" y="133.5" width="87.5" height="26.5"/>
                                         <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="22"/>
                                         <nil key="textColor"/>
@@ -241,6 +241,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mmu-XG-BJA"/>
+                    <connections>
+                        <outlet property="genreLabel" destination="XYo-Oy-gp7" id="C5e-5h-4i7"/>
+                        <outlet property="imdbRatingLabel" destination="sjb-Ft-HmB" id="NcC-F9-YxK"/>
+                        <outlet property="movieImageView" destination="YKe-6r-Ghv" id="sUp-W8-ZGw"/>
+                        <outlet property="movieTitle" destination="V2Y-9k-akP" id="fRn-zH-Qtb"/>
+                        <outlet property="releasedAndTypeLabel" destination="vnA-4a-nPM" id="kfj-RD-BGZ"/>
+                        <outlet property="synopsisLabel" destination="Vaw-s0-TLY" id="Hqy-po-wYu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2kd-KI-ZaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

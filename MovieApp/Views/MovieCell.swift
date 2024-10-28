@@ -14,24 +14,13 @@ final class MovieCell: UITableViewCell {
     @IBOutlet var yearAndTypeLabel: UILabel!
     @IBOutlet var movieView: UIImageView!
     
+    private let networkManager = NetworkManager.shared
+    
     func configure(with movie: Movie) {
         nameLabel.text = movie.title
         rateLabel.text = movie.imdbrating.formatted()
         yearAndTypeLabel.text = "\(movie.released), \(movie.type)"
         
-        DispatchQueue.global().async {
-            if let imageUrlString = movie.imageurl.first,
-                let url = URL(string: imageUrlString),
-                let imageData = try? Data(contentsOf: url) {
-                DispatchQueue.main.async { [unowned self] in
-                    movieView.image = UIImage(data: imageData)
-                }
-            } else {
-                DispatchQueue.main.async { [unowned self] in
-                    movieView.image = UIImage(systemName: "movieclapper")
-                    movieView.tintColor = .black
-                }
-            }
-        }
+        networkManager.fetchImage(fromMovie: movie, toImage: movieView)
     }
 }

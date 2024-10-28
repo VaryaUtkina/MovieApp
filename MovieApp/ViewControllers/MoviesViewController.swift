@@ -9,13 +9,22 @@ import UIKit
 
 final class MoviesViewController: UITableViewController {
     
+    // MARK: - Private Properties
     private let networkManager = NetworkManager.shared
     private var movies: [Movie] = []
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchMovies()
         tableView.rowHeight = 120
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let movie = sender as? Movie else { return }
+        guard let movieDetailsVC = segue.destination as? MovieDetailsViewController else { return }
+        movieDetailsVC.movie = movie
     }
     
     // MARK: - UITableViewDataSource
@@ -31,6 +40,13 @@ final class MoviesViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = movies[indexPath.row]
+        performSegue(withIdentifier: "showMovie", sender: movie)
+    }
+    
+    // MARK: - Private Methods
     private func fetchMovies() {
         networkManager.fetchMovies { [weak self] result in
             guard let self else { return }
