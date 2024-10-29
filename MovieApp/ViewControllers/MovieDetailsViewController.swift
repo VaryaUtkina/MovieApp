@@ -26,7 +26,21 @@ final class MovieDetailsViewController: UIViewController {
     }
     
     private func setupUI() {
-        networkManager.fetchImage(fromMovie: movie, toImage: movieImageView)
+        networkManager.fetchImage(fromMovie: movie) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let imageData):
+                movieImageView.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    movieImageView.image = UIImage(systemName: "movieclapper")
+                    movieImageView.tintColor = .customGrey
+                }
+            }
+        }
+        
         movieTitle.text = movie.title
         releasedAndTypeLabel.text = "\(movie.released), \(movie.type)"
         

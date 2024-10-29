@@ -5,12 +5,15 @@
 //  Created by Варвара Уткина on 23.10.2024.
 //
 
-import UIKit
+import Foundation
 
 
 enum NetworkError: Error {
     case noData
     case decodingError
+    case noImageData
+    case wrongType
+    case invalidURL
 }
 
 final class NetworkManager {
@@ -32,6 +35,7 @@ final class NetworkManager {
         
         URLSession.shared.dataTask(with: request as URLRequest) { data, _, error in
             guard let data else {
+                completion(.failure(.noData))
                 print(error ?? "No error description")
                 return
             }
@@ -48,20 +52,38 @@ final class NetworkManager {
         }.resume()
     }
     
-    func fetchImage(fromMovie movie: Movie, toImage image: UIImageView) {
-        DispatchQueue.global().async {
-            if let imageUrlString = movie.imageurl.first,
-                let url = URL(string: imageUrlString),
-                let imageData = try? Data(contentsOf: url) {
-                DispatchQueue.main.async {
-                    image.image = UIImage(data: imageData)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    image.image = UIImage(systemName: "movieclapper")
-                    image.tintColor = .customGrey
-                }
-            }
+    func fetchImage(fromMovie movie: Movie, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+        guard let imageUrl = movie.imageurl.first else {
+            completion(.failure(.wrongType))
+            return
         }
+        guard let url = URL(string: imageUrl) else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error {
+                print("Error fetching image: \(error.localizedDescription)")
+                completion(.failure(.noImageData))
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse,
+               httpResponse.statusCode != 200 {
+                print("HTTP Status Code: \(httpResponse.statusCode)")
+                completion(.failure(.noImageData))
+                return
+            }
+            
+            guard let data else {
+                completion(.failure(.noImageData))
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(.success(data))
+            }
+        }.resume()
+        
     }
 }

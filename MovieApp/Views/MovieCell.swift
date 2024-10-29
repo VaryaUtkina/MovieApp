@@ -16,11 +16,26 @@ final class MovieCell: UITableViewCell {
     
     private let networkManager = NetworkManager.shared
     
-    func configure(with movie: Movie) {
+    func configure(with movie: Movie?) {
+        guard let movie else { return }
         nameLabel.text = movie.title
         rateLabel.text = movie.imdbrating.formatted()
+        rateLabel.textColor = movie.imdbrating >= 7 ? .customGreen : .customGrey
         yearAndTypeLabel.text = "\(movie.released), \(movie.type)"
         
-        networkManager.fetchImage(fromMovie: movie, toImage: movieView)
+        networkManager.fetchImage(fromMovie: movie) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let imageData):
+                movieView.image = UIImage(data: imageData)
+            case .failure(let error):
+                print(error)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    movieView.image = UIImage(systemName: "movieclapper")
+                    movieView.tintColor = .customGrey
+                }
+            }
+        }
     }
 }
