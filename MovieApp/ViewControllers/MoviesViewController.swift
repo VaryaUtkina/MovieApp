@@ -11,13 +11,23 @@ final class MoviesViewController: UITableViewController {
     
     // MARK: - Private Properties
     private let networkManager = NetworkManager.shared
-    private var movies: [Movie] = []
+    private var movies: [Movie]?
+    private var filteredMovie: [Movie] = []
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchMovies()
         tableView.rowHeight = 80
+        fetchMovies()
+        setupSearchController()
     }
     
     // MARK: - Navigation
@@ -29,36 +39,63 @@ final class MoviesViewController: UITableViewController {
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        movies.count
+        isFiltering ? filteredMovie.count : movies?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
         guard let cell = cell as? MovieCell else { return UITableViewCell() }
-        let movie = movies[indexPath.row]
+        let movie = isFiltering ? filteredMovie[indexPath.row] : movies?[indexPath.row]
         cell.configure(with: movie)
         return cell
     }
     
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movie = movies[indexPath.row]
+        let movie = isFiltering ? filteredMovie[indexPath.row] : movies?[indexPath.row]
         performSegue(withIdentifier: "showMovie", sender: movie)
     }
     
     // MARK: - Private Methods
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.barTintColor = .customGrey
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.font = UIFont.boldSystemFont(ofSize: 17)
+            textField.textColor = .customGrey
+        }
+    }
+    
     private func fetchMovies() {
         networkManager.fetchMovies { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let movies):
                 self.movies = movies.results
-                print(self.movies)
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }
         }
     }
+}
 
+// MARK: - UISearchResultsUpdating
+extension MoviesViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContenForSearchText(searchController.searchBar.text ?? "")
+    }
+    
+    private func filterContenForSearchText(_ searchText: String) {
+        filteredMovie = movies?.filter { movie in
+            movie.title.lowercased().contains(searchText.lowercased())
+        } ?? []
+        
+        tableView.reloadData()
+    }
 }
