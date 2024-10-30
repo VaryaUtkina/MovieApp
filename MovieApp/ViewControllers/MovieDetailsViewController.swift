@@ -19,9 +19,11 @@ final class MovieDetailsViewController: UIViewController {
     var movie: Movie!
     
     private let networkManager = NetworkManager.shared
+    private var spinnerView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showSpinner(in: movieImageView)
         setupUI()
     }
     
@@ -31,12 +33,14 @@ final class MovieDetailsViewController: UIViewController {
             switch result {
             case .success(let imageData):
                 movieImageView.image = UIImage(data: imageData)
+                spinnerView.stopAnimating()
             case .failure(let error):
                 print(error)
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
                     movieImageView.image = UIImage(systemName: "movieclapper")
                     movieImageView.tintColor = .customGrey
+                    spinnerView.stopAnimating()
                 }
             }
         }
@@ -49,5 +53,14 @@ final class MovieDetailsViewController: UIViewController {
         
         genreLabel.text = "Genre: \(movie.genre.joined(separator: ", "))"
         synopsisLabel.text = "Synopsis: \(movie.synopsis)"
+    }
+    
+    private func showSpinner(in view: UIView) {
+        spinnerView = UIActivityIndicatorView(style: .medium)
+        spinnerView.color = .customGrey
+        spinnerView.startAnimating()
+        spinnerView.center = view.center
+        spinnerView.hidesWhenStopped = true
+        view.addSubview(spinnerView)
     }
 }

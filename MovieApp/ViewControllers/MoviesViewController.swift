@@ -69,6 +69,7 @@ final class MoviesViewController: UITableViewController {
             textField.font = UIFont.boldSystemFont(ofSize: 17)
             textField.textColor = .customGrey
         }
+
     }
     
     private func fetchMovies() {

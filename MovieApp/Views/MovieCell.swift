@@ -15,6 +15,7 @@ final class MovieCell: UITableViewCell {
     @IBOutlet var movieView: UIImageView!
     
     private let networkManager = NetworkManager.shared
+    private var spinnerView = UIActivityIndicatorView()
     
     func configure(with movie: Movie?) {
         guard let movie else { return }
@@ -28,14 +29,25 @@ final class MovieCell: UITableViewCell {
             switch result {
             case .success(let imageData):
                 movieView.image = UIImage(data: imageData)
+                spinnerView.stopAnimating()
             case .failure(let error):
                 print(error)
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
                     movieView.image = UIImage(systemName: "movieclapper")
                     movieView.tintColor = .customGrey
+                    spinnerView.stopAnimating()
                 }
             }
         }
+    }
+    
+    private func showSpinner(in view: UIView) {
+        spinnerView = UIActivityIndicatorView(style: .medium)
+        spinnerView.color = .customGrey
+        spinnerView.startAnimating()
+        spinnerView.center = view.center
+        spinnerView.hidesWhenStopped = true
+        view.addSubview(spinnerView)
     }
 }
